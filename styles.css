@@ -1,0 +1,35 @@
+
+
+.two-column {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.left-col {
+  width: 300px;
+  text-align: center;
+  padding-top: 10px;
+  padding-right: 40px;
+  font-size: 26px;
+}
+
+.left-col img {
+  display: block;
+  width: 100%;
+}
+
+.right-col {
+  width: 500px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+  width: 600px;
+  font-size: 30px;
+}
+

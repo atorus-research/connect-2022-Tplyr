@@ -1,47 +1,118 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Presentation Ninja</title>
+    <title>Using cutting edge open-source tools to drill into clinical safety data</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Yihui Xie" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <meta name="author" content="Eli Miller, Atorus Research" />
+    <script src="libs/header-attrs-2.13/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/fc.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/fc-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
+class: bottom, left, title-slide
 
 .title[
-# Presentation Ninja
+# Using cutting edge open-source tools to drill into clinical safety data
 ]
 .subtitle[
-## ⚔<br/>with xaringan
+## A look into recent developments in Tplyr and safetyGraphics
 ]
 .author[
-### Yihui Xie
-]
-.institute[
-### RStudio, PBC
+### Eli Miller, Atorus Research
 ]
 .date[
-### 2016/12/12 (updated: 2022-04-12)
+### 4/13/2022
 ]
 
 ---
 
 
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
 
 
 
+## What is "metadata" in Tplyr?
+
+.two-column[
+.left-col[
+`get_meta_result`
+
+Get the value of a cell with the row_id and column
+
+`get_meta_subset`
+
+Get the dataset filtered based on the row and column selected.
+
+`build(metadata = TRUE)`
+
+Build a Tplyr table with metadata build in.
+
+]
+
+.right-col[
+
+### What does this help us do?
+
+- Traceability from summary to data - We don't lose the context when we create the table
+
+- Interface for interactive elements - If you are building widgets or interactive elements, you can now know what data a user is trying to interact with
+
+- Logic for filtering and relevant variables - Helper functions for extracting results and filtering data
+]
+]
+
+
+
+---
+
+## Why are you using safetyGraphics?
+
+.center[
+- A prebuilt framework for loading and mapping data - safetyGraphics has built in mapping options, but can be used to load data in any format
+
+- Filtering widgets built in - Data can be filtered on the fly
+
+- Extensible built in - Watch out for this to be included in the new release of Tplyr
+
+- Under active development - Multiple teams are developing and improving graphics 
+]
+
+---
+
+## An example demo table
+
+&lt;iframe src="https://atorus-connect.eastus2.cloudapp.azure.com/content/72595d82-f89d-4e97-ab72-da70d490e9f8", height=85%, width=100%/&gt;
+
+---
+
+## An example AE table
+
+&lt;iframe src="https://atorus-connect.eastus2.cloudapp.azure.com/content/e7b9c342-7f7f-4869-a9d3-03108704373b", height=85%, width=100%/&gt;
+
+---
+
+## An example Renal Table
+
+&lt;iframe src="https://atorus-connect.eastus2.cloudapp.azure.com/content/011dfee9-97d7-4305-83c6-2c138b2f9cb7", height=85%, width=100%/&gt;
+---
+
+## Thank you to...
+
+- Jeremy Wildfire
+
+- Matt Kumar
+
+- Mike Stackhouse
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
+"slideNumberFormat": "%current%",
 "highlightLines": true,
-"countIncrementalSlides": false
+"countIncrementalSlides": false,
+"ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
