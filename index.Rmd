@@ -1,21 +1,95 @@
 ---
-title: "Presentation Ninja"
-subtitle: "⚔<br/>with xaringan"
-author: "Yihui Xie"
-institute: "RStudio, PBC"
-date: "2016/12/12 (updated: `r Sys.Date()`)"
+title: "Using cutting edge open-source tools to drill into clinical safety data"
+subtitle: "A look into recent developments in Tplyr and safetyGraphics"
+author: "Eli Miller, Atorus Research"
+date: "4/13/2022"
 output:
   xaringan::moon_reader:
+    css: ['styles.css', 'fc','fc-fonts']
     lib_dir: libs
     nature:
       highlightStyle: github
+      titleSlideClass: ["bottom", "left"]
+      slideNumberFormat: "%current%"
       highlightLines: true
       countIncrementalSlides: false
+      ratio: "16:9"
 ---
 
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
-
 ```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
+library(config)
 ```
 
+
+## What is "metadata" in Tplyr?
+
+.two-column[
+.left-col[
+`get_meta_result`
+
+Get the value of a cell with the row_id and column
+
+`get_meta_subset`
+
+Get the dataset filtered based on the row and column selected.
+
+`build(metadata = TRUE)`
+
+Build a Tplyr table with metadata build in.
+
+]
+
+.right-col[
+
+### What does this help us do?
+
+- Traceability from summary to data - We don't lose the context when we create the table
+
+- Interface for interactive elements - If you are building widgets or interactive elements, you can now know what data a user is trying to interact with
+
+- Logic for filtering and relevant variables - Helper functions for extracting results and filtering data
+]
+]
+
+
+
+---
+
+## Why are you using safetyGraphics?
+
+.center[
+- A prebuilt framework for loading and mapping data - safetyGraphics has built in mapping options, but can be used to load data in any format
+
+- Filtering widgets built in - Data can be filtered on the fly
+
+- Extensible built in - Watch out for this to be included in the new release of Tplyr
+
+- Under active development - Multiple teams are developing and improving graphics 
+]
+
+---
+
+## An example demo table
+
+<iframe src="https://atorus-connect.eastus2.cloudapp.azure.com/content/72595d82-f89d-4e97-ab72-da70d490e9f8", height=85%, width=100%/>
+
+---
+
+## An example AE table
+
+<iframe src="https://atorus-connect.eastus2.cloudapp.azure.com/content/e7b9c342-7f7f-4869-a9d3-03108704373b", height=85%, width=100%/>
+
+---
+
+## An example Renal Table
+
+<iframe src="https://atorus-connect.eastus2.cloudapp.azure.com/content/011dfee9-97d7-4305-83c6-2c138b2f9cb7", height=85%, width=100%/>
+---
+
+## Thank you to...
+
+- Jeremy Wildfire
+
+- Matt Kumar
+
+- Mike Stackhouse
